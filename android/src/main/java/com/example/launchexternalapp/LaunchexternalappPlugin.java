@@ -6,7 +6,6 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
-import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 import android.content.Context;
 import android.content.Intent;
@@ -27,11 +26,6 @@ public class LaunchexternalappPlugin implements MethodCallHandler, FlutterPlugin
   }
 
   /** Plugin registration. */
-  public static void registerWith(Registrar registrar) {
-    channel = new MethodChannel(registrar.messenger(), "launch_vpn");
-    channel.setMethodCallHandler(new LaunchexternalappPlugin(registrar.activeContext()));
-  }
-
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {  
     channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "launch_vpn");
